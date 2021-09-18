@@ -1,15 +1,28 @@
+import { useEffect, useState } from 'react'
 import Header from './Header'
 import PicList from './PicList'
 import '../App.css';
 
 function App() {
+  const [picData, setPicData] = useState([])
 
+  useEffect(() => {
+
+    fetch(`https://images-api.nasa.gov/album/Michoud_Artemis_III`)
+    .then( res => res.json() )
+    .then( res => {
+            
+            setPicData([...res.collection.items])
+            
+        })
+
+  },[])
 
 
   return (
     <div className="App">
       <Header/>
-      <PicList/>
+      <PicList picData={picData}/>
     </div>
   );
 }
