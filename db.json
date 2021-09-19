@@ -6,9 +6,16 @@
       "password": "swordfish"
     },
     {
-      "username": "Stegasaurus",
-      "password": "rex",
+      "username": "Josh",
+      "password": "swordfish",
       "id": 2
+    }
+  ],
+  "liked": [
+    {
+      "id": 1,
+      "nasa_id": "PIA04921",
+      "userId": 1
     }
   ]
 }

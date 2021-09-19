@@ -9,6 +9,8 @@ function App() {
   const [selectedGalaxy, setSelectedGalaxy] = useState("")
   const [loggedInUser, setLoggedInUser] = useState("")
 
+  
+
   useEffect(() => {
     fetch(`https://images-api.nasa.gov/search?q=${selectedGalaxy}-galaxy-cluster`)
     .then( res => res.json() )
@@ -23,7 +25,7 @@ if(loggedInUser === ""){
   return (
     <div className="App">
       <Header setLoggedInUser={setLoggedInUser}/>
-      <PicList picData={picData} setSelectedGalaxy={setSelectedGalaxy}/>
+      <PicList picData={picData} setSelectedGalaxy={setSelectedGalaxy} user={loggedInUser}/>
     </div>
   );
 }

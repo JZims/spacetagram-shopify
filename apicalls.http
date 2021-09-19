@@ -1,12 +1,9 @@
-GET https://api.nasa.gov/planetary/apod?api_key=O9p5qZ42dAhhkSu46eLiHu3I9YhH31s0AerNKbJh
+GET http://localHost:3001/users
 
 ###
 
-GET https://images-api.nasa.gov/search?q=apollo%2011&description=moon%20landing&media_type=image
-
-###
-GET https://images-api.nasa.gov/search?q=moon&description=landing&media_type=image&photographer=Michael DeMocker&media_type=image
+GET https://images-api.nasa.gov/search?q=norma-galaxy-cluster
 
 ###
 
-GET https://images-api.nasa.gov/album/Michoud_Artemis_III&media_type=image
+GET http://localHost:3001/users/1?_embed=liked
