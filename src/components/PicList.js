@@ -1,7 +1,15 @@
 import React from 'react'
 import PicCard from './PicCard'
 
-export default function PicList({picData}) {
+export default function PicList({picData, setSelectedGalaxy}) {
+
+
+    
+
+    function handleGalaxyChange(e){
+        e.preventDefault()
+        setSelectedGalaxy(e.target.galaxy.value)
+    }
 
 
     const populateWithCards = picData.map(obj => {
@@ -19,6 +27,17 @@ export default function PicList({picData}) {
 
     return (
         <div>
+            <form onSubmit={handleGalaxyChange} id="galaxies">
+                <label for="galaxy">Which Galaxy would you like to search for?</label>
+                <br/>
+                <input type="text" id="galaxy" name="galaxy" placeholder="Enter a galaxy name:"/>
+                <br/>
+                <button type="submit" form="galaxies">Submit</button>
+            </form>
+            
+            <br/>
+            <br/>
+            
             {populateWithCards}
         </div>
     )

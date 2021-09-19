@@ -6,7 +6,7 @@ export default function PicCard({url, description, date}) {
 
     return (
         <div>
-            <img src={url} alt={description} width="450" height="400"></img>
+            <img src={url} alt={description} width="650" height="400"></img>
         </div>
     )
 }
