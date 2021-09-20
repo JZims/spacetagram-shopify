@@ -1,11 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "Josh",
-      "password": "swordfish"
-    },
-    {
       "username": "Josh",
       "password": "swordfish",
       "id": 2
@@ -15,7 +10,7 @@
     {
       "id": 1,
       "nasa_id": "PIA04921",
-      "userId": 1
+      "userId": 2
     }
   ]
 }
