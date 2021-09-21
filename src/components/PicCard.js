@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { FaHandSpock } from "react-icons/fa"
-import { ContextExclusionPlugin } from 'webpack'
+
 
 export default function PicCard({url, description, date, id, title, userId, userName, userLiked}) {
 
@@ -13,13 +13,13 @@ export default function PicCard({url, description, date, id, title, userId, user
 
             if(id === obj.nasa_id){
                 setIsLiked(true)
-                // setDeleteId(obj.id)
+                setDeleteId(obj.id)
             }
         })
 
     },[userLiked, id])
     
-    // console.log(deleteId)
+    console.log(deleteId)
 
     function handleLike(){
            fetch(`http://localHost:3001/liked`, {
@@ -52,7 +52,7 @@ export default function PicCard({url, description, date, id, title, userId, user
             <div className="galaxy_info">
                 <h3>{title}</h3>
                 <h5>Date Taken: {date}</h5>
-                {isLiked ? <button id="like_button" onClick={handleUnlike}> <FaHandSpock /> Liked </button> : <button id="like_button" onClick={handleLike}> <FaHandSpock /> Like </button> }
+                {isLiked ? <button id="unlike_button" onClick={handleUnlike}> <FaHandSpock style={{color: 'blue'}} /> Liked </button> : <button id="like_button" onClick={handleLike}> <FaHandSpock /> Like </button> }
             </div>
         </div>
     )
