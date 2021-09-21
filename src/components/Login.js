@@ -34,7 +34,7 @@ export default function Login({setLoggedInUser}) {
             fetch(`http://localhost:3001/users?username=${username}`)
             .then(res => res.json())
             .then(res => {
-                console.log(res)
+                
                 //insecure login - password checking
                 if(res.length >= 1 && res[0].password === password){
                     setLoggedInUser(res[0])

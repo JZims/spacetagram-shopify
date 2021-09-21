@@ -4,6 +4,11 @@
       "username": "Josh",
       "password": "swordfish",
       "id": 2
+    },
+    {
+      "username": "Billy Bob",
+      "password": "lol",
+      "id": 3
     }
   ],
   "liked": [
@@ -13,7 +18,7 @@
       "userId": 2
     },
     {
-      "nasa_id": "PIA07906",
+      "nasa_id": "PIA17253",
       "userId": 2,
       "id": 2
     }

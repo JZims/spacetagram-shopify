@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import PicCard from './PicCard'
 
 export default function PicList({picData, setSelectedGalaxy, user}) {
-
+    // const [isLiked, setIsLiked] = useState(false) 
     const [userLiked, setUserLiked] = useState([])
-
+    const isLiked = useRef(false)
 
     // fetch for list of liked posts when the page loads
     useEffect(()=>{
@@ -13,9 +13,14 @@ export default function PicList({picData, setSelectedGalaxy, user}) {
             .then(res => {
                 setUserLiked(res.liked)
             })
-    },[user.id])
-    
-   
+    },[user, isLiked])
+
+   function handleDeleteLike(id){
+        
+        const filteredLike = userLiked.filter( obj => obj.id === id)
+        console.log(filteredLike)
+        
+   }
 
     function handleGalaxyChange(e){
         e.preventDefault()
@@ -33,8 +38,9 @@ export default function PicList({picData, setSelectedGalaxy, user}) {
                     description = {obj.data[0].description} 
                     url = {obj.links[0].href}
                     userId = {user.id}
-                    userName = {user.username}
                     userLiked = {userLiked}
+                    handleDeleteLike = {handleDeleteLike}
+                    isLiked = {isLiked}
                     />
                 )
             })

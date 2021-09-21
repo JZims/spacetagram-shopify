@@ -1,25 +1,18 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef} from 'react'
 import { FaHandSpock } from "react-icons/fa"
 
 
-export default function PicCard({url, description, date, id, title, userId, userName, userLiked}) {
+export default function PicCard({url, description, date, id, title, userId, userLiked, handleDeleteLike, isLiked}) {
 
-    const[isLiked, setIsLiked] = useState(false) 
-    const[deleteId, setDeleteId] = useState()
+    
 
     //All user's likes are filtered through, checking if this post is already liked
    useEffect(() => {
         userLiked.forEach( obj => {
+            return id === obj.nasa_id ? isLiked.current = true : null  
+            })
 
-            if(id === obj.nasa_id){
-                setIsLiked(true)
-                setDeleteId(obj.id)
-            }
-        })
-
-    },[userLiked, id])
-    
-    console.log(deleteId)
+        },[userLiked, id])
 
     function handleLike(){
            fetch(`http://localHost:3001/liked`, {
@@ -29,20 +22,23 @@ export default function PicCard({url, description, date, id, title, userId, user
                }, 
                body: JSON.stringify({nasa_id: id, userId: userId})
            })
-           .then( () => setIsLiked(true) )
+           .then( () => isLiked.current = true )
     }
 
 
     function handleUnlike(){
 
+        handleDeleteLike(id)
 
-        fetch(`http://localhost:3000/liked/${id}`, {
-            method: "DELETE", 
-            headers: {
-                "Content-Type": "applicaiton/json"
-            }
-        })
-        .then(() => setIsLiked(false))
+        isLiked.current = false
+
+        // fetch(`http://localhost:3001/liked/${deleteId}`, {
+        //     method: "DELETE", 
+        //     headers: {
+        //         "Content-Type": "applicaiton/json"
+        //     }
+        // })
+        // .then(() => setIsLiked(false))
     }
     
 
@@ -52,7 +48,7 @@ export default function PicCard({url, description, date, id, title, userId, user
             <div className="galaxy_info">
                 <h3>{title}</h3>
                 <h5>Date Taken: {date}</h5>
-                {isLiked ? <button id="unlike_button" onClick={handleUnlike}> <FaHandSpock style={{color: 'blue'}} /> Liked </button> : <button id="like_button" onClick={handleLike}> <FaHandSpock /> Like </button> }
+                {isLiked.current ? <button id="unlike_button" onClick={() => handleUnlike(id)}> <FaHandSpock style={{color: 'blue'}} /> Liked </button> : <button id="like_button" onClick={() => handleLike() }> <FaHandSpock /> Like </button> }
             </div>
         </div>
     )
