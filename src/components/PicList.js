@@ -13,7 +13,7 @@ export default function PicList({picData, setSelectedGalaxy, user}) {
             .then(res => {
                 setUserLiked(res.liked)
             })
-    },[])
+    },[user.id])
     
    
 

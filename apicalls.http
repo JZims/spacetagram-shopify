@@ -6,4 +6,11 @@ GET https://images-api.nasa.gov/search?q=norma-galaxy-cluster
 
 ###
 
-GET http://localHost:3001/users/1?_embed=liked
+GET http://localHost:3001/users/2?_embed=liked
+
+###
+
+DELETE http://localHost:3001/liked/nasa_id/PIA07906
+
+
+           

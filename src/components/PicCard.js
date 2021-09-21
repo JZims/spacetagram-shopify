@@ -1,21 +1,48 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import { FaHandSpock } from "react-icons/fa"
+import { ContextExclusionPlugin } from 'webpack'
 
 export default function PicCard({url, description, date, id, title, userId, userName, userLiked}) {
 
-    var isLiked = false
+    const[isLiked, setIsLiked] = useState(false) 
+    const[deleteId, setDeleteId] = useState()
 
-    userLiked.map(obj => {
-        id === obj.nasa_id
-    })
+    //All user's likes are filtered through, checking if this post is already liked
+   useEffect(() => {
+        userLiked.forEach( obj => {
+
+            if(id === obj.nasa_id){
+                setIsLiked(true)
+                // setDeleteId(obj.id)
+            }
+        })
+
+    },[userLiked, id])
+    
+    // console.log(deleteId)
 
     function handleLike(){
-        //On like, all user's likes are fetched and filtered thrrough, checking if
-        //the liked post matches an already liked post. 
-           fetch(`http://localHost:3001/users/${userId}?_embed=liked`)
-            .then(res => res.json())
-            .then(res => {
+           fetch(`http://localHost:3001/liked`, {
+               method: "POST", 
+               headers: {
+                   "Content-Type": "application/json"
+               }, 
+               body: JSON.stringify({nasa_id: id, userId: userId})
+           })
+           .then( () => setIsLiked(true) )
+    }
 
-            })
+
+    function handleUnlike(){
+
+
+        fetch(`http://localhost:3000/liked/${id}`, {
+            method: "DELETE", 
+            headers: {
+                "Content-Type": "applicaiton/json"
+            }
+        })
+        .then(() => setIsLiked(false))
     }
     
 
@@ -25,7 +52,7 @@ export default function PicCard({url, description, date, id, title, userId, user
             <div className="galaxy_info">
                 <h3>{title}</h3>
                 <h5>Date Taken: {date}</h5>
-                <button id="like_button" onClick={handleLike}>Like</button>
+                {isLiked ? <button id="like_button" onClick={handleUnlike}> <FaHandSpock /> Liked </button> : <button id="like_button" onClick={handleLike}> <FaHandSpock /> Like </button> }
             </div>
         </div>
     )
