@@ -9,3 +9,14 @@ This app allows the user to:
     - Like a post
     - Unlike a post
     - Log out, and back in with a new user name 
+
+
+***Disclaimer***
+
+Known issues: 
+    - Unliking items does not render properly to reflect liked posts to the JSON server. This is mostly due to the limitations of making relational data with a non-relationa database such as JSON server.
+    - There was a time constraint which limited the implementation of styling, but alt tags are provided for each image rendered to on the page.
+
+
+
+Hope you enjoy!
