@@ -4,6 +4,7 @@ import PicCard from './PicCard'
 export default function PicList({picData, setSelectedGalaxy, user}) {
 
     const [userLiked, setUserLiked] = useState([])
+    const [deleteId, setDeleteId] = useState()
 
 
     // fetch for list of liked posts when the page loads
@@ -26,15 +27,17 @@ export default function PicList({picData, setSelectedGalaxy, user}) {
     const populateWithCards = picData.map(obj => {
                 return (
                     <PicCard
-                    key = {obj.data[0].nasa_id}
-                    id =  {obj.data[0].nasa_id}
-                    title = {obj.data[0].title}
-                    date = {obj.data[0].date_created}
-                    description = {obj.data[0].description} 
-                    url = {obj.links[0].href}
-                    userId = {user.id}
-                    userName = {user.username}
-                    userLiked = {userLiked}
+                        key = {obj.data[0].nasa_id}
+                        id =  {obj.data[0].nasa_id}
+                        title = {obj.data[0].title}
+                        date = {obj.data[0].date_created}
+                        description = {obj.data[0].description} 
+                        url = {obj.links[0].href}
+                        userId = {user.id}
+                        userName = {user.username}
+                        userLiked = {userLiked}
+                        deleteId = {deleteId}
+                        setDeleteId = {setDeleteId}
                     />
                 )
             })

@@ -11,7 +11,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState("")
 
   
-
+//Queries API for the requested galaxy and sets the array of items in state
   useEffect(() => {
     fetch(`https://images-api.nasa.gov/search?q=${selectedGalaxy}-galaxy-cluster`)
     .then( res => res.json() )

@@ -4,18 +4,38 @@
       "username": "Josh",
       "password": "swordfish",
       "id": 2
+    },
+    {
+      "username": "Steve",
+      "password": "lol",
+      "id": 3
+    },
+    {
+      "username": "notme",
+      "password": "lolol",
+      "id": 4
     }
   ],
   "liked": [
     {
-      "id": 1,
-      "nasa_id": "PIA04921",
-      "userId": 2
-    },
-    {
-      "nasa_id": "PIA07906",
+      "nasa_id": "GSFC_20171208_Archive_e000078",
       "userId": 2,
       "id": 2
+    },
+    {
+      "nasa_id": "PIA17253",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "nasa_id": "GSFC_20171208_Archive_e002174",
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "nasa_id": "PIA19330",
+      "userId": 2,
+      "id": 5
     }
   ]
 }

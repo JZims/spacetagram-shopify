@@ -32,3 +32,13 @@
 #unlike_button{
   color:blue;
 }
+
+.image_div{
+  display: flex;
+}
+
+.image_div > img{
+  
+  width: 650px;
+  height: 400px;
+  }
