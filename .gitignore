@@ -18,8 +18,8 @@
 .env.test.local
 .env.production.local
 .env
-.apicalls
+apicalls.http
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
+db.json

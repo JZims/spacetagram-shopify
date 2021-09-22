@@ -10,7 +10,6 @@ GET http://localHost:3001/users/2?_embed=liked
 
 ###
 
-DELETE http://localHost:3001/liked/nasa_id/PIA07906
-
+DELETE http://localHost:3001/liked/4
 
            

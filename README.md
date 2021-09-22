@@ -19,4 +19,4 @@ Known issues:
 
 
 
-Hope you enjoy!
+Enjoy!
