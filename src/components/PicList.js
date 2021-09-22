@@ -9,7 +9,7 @@ export default function PicList({picData, setSelectedGalaxy, user}) {
 
     // fetch for list of liked posts when the page loads
     useEffect(()=>{
-        fetch(`http://localHost:3001/users/${user.id}?_embed=liked`)
+        fetch(`https://my-json-server.typicode.com/JZims/spacetagram-shopify/users/${user.id}?_embed=liked`)
             .then(res => res.json())
             .then(res => {
                 setUserLiked(res.liked)

@@ -11,7 +11,7 @@ export default function Login({setLoggedInUser}) {
         const password = e.target.password.value
 
         if(submitMethod !== "login"){
-            fetch(`http://localhost:3001/users`, {
+            fetch(`https://my-json-server.typicode.com/JZims/spacetagram-shopify/users`, {
                 method: "POST", 
                 headers: {
                     "Content-Type": "application/json"
@@ -31,7 +31,7 @@ export default function Login({setLoggedInUser}) {
             })
         } else {
             
-            fetch(`http://localhost:3001/users?username=${username}`)
+            fetch(`https://my-json-server.typicode.com/JZims/spacetagram-shopify/users?username=${username}`)
             .then(res => res.json())
             .then(res => {
                 console.log(res)

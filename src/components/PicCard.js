@@ -23,7 +23,7 @@ export default function PicCard({url, description, date, id, title, userId, user
     console.log(deleteId)
 
     function handleLike(){
-           fetch(`http://localHost:3001/liked`, {
+           fetch(`https://my-json-server.typicode.com/JZims/spacetagram-shopify/liked`, {
                method: "POST", 
                headers: {
                    "Content-Type": "application/json"
@@ -37,7 +37,7 @@ export default function PicCard({url, description, date, id, title, userId, user
 
     const handleUnlike = function (){
 
-        fetch(`http://localhost:3001/liked/${deleteId}`, {
+        fetch(`https://my-json-server.typicode.com/JZims/spacetagram-shopify/liked/${deleteId}`, {
             method: "DELETE", 
             headers: {
                 "Content-Type": "applicaiton/json"
